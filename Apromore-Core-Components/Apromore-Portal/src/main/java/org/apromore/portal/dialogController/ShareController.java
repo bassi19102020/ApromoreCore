@@ -208,6 +208,21 @@ public class ShareController extends SelectorComposer<Window> {
                 }
             }
         });
+
+        editBtn.addEventListener("onIncludeMetadata", new EventListener<Event>() {
+            @Override
+            public void onEvent(Event event) throws Exception {
+                JSONObject param = (JSONObject) event.getData();
+                String rowGuid = (String) param.get("rowGuid");
+                String name = (String) param.get("name");
+                Assignment assignment = assignmentMap.get(rowGuid);
+                if (assignment != null) {
+                    assignment.setShareUserMetadata(!assignment.isShareUserMetadata());
+                    int index = assignmentModel.indexOf(assignment);
+                    assignmentModel.set(index, assignment); // trigger change
+                }
+            }
+        });
     }
 
     private void loadCandidateAssignee() {
@@ -253,6 +268,8 @@ public class ShareController extends SelectorComposer<Window> {
         for (Assignment assignment : assignmentModel) {
             String name = assignment.getName();
             String rowGuid = assignment.getRowGuid();
+            // FIXME pass this when backend is ready
+            // boolean shareUserMetadata = assignment.isShareUserMetadata();
             AccessType accessType = AccessType.getAccessType(assignment.getAccess());
             Group group = securityService.findGroupByRowGuid(rowGuid);
             if (groupAccessTypeChanges.containsKey(group)) {

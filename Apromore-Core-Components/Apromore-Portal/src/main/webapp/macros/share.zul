@@ -23,7 +23,7 @@
 <window xmlns:h="http://www.w3.org/1999/xhtml"
         xmlns:ca="client/attribute"
         sclass="ap-share-win"
-        width="400px" height="80%" position="center"
+        width="700px" height="80%" position="center"
         closable="true"
         title="Share" apply="org.apromore.portal.dialogController.ShareController">
   <script type="text/javascript" src="/themes/ap/share/js/index.js"></script>
@@ -60,8 +60,10 @@
     <listbox id="assignmentListbox" multiple="true" vflex="1" hflex="1" xmlns:ca="client/attribute">
       <listhead>
         <listheader align="center" label="" width="40px" /><!-- user/group icon -->
-        <listheader align="left" label="Name" width="130px" sort="auto(name)" />
-        <listheader align="left" label="Permission" />
+        <listheader align="left" label="Name" sort="auto(name)" />
+        <listheader align="left" label="Permission" width="130px" />
+        <listheader align="center" tooltiptext="Share also the associated user metadata" label="Incl. metadata"
+                    width="130px" />
         <listheader align="center" label="" width="40px" style="cursor:pointer;" />
       </listhead>
       <template name="model">
@@ -73,11 +75,16 @@
           <listcell>
             <combobox value="${each.access}"
                       readonly="true"
+                      hflex="1"
                       ca:onSelect="Ap.share.updateAssignee('${each.rowGuid}', '${each.name}', arguments[0].target.value)">
               <comboitem label="Viewer" />
               <comboitem label="Editor" />
               <comboitem label="Owner" />
             </combobox>
+          </listcell>
+          <listcell>
+            <checkbox ca:onClick="Ap.share.toggleIncludeMetadata('${each.rowGuid}', '${each.name}')"
+                      checked="${each.shareUserMetadata}" />
           </listcell>
           <listcell>
             <button sclass="ap-icon ap-icon-trash" tooltiptext="Remove"
