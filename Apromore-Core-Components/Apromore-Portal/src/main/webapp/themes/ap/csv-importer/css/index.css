@@ -175,6 +175,7 @@
     line-height: 24px !important;
 }
 
+.ap-csv-importer-header button,
 .ap-csv-importer-footer button {
     font-family: 'Source Sans Pro', FontAwesome, sans-serif !important;
 }
