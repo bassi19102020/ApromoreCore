@@ -247,6 +247,12 @@ ORYX.I18N.View.zoomStandardDesc = "Zoom to the standard level";
 ORYX.I18N.View.zoomFitToModel = "Zoom fit to model";
 ORYX.I18N.View.zoomFitToModelDesc = "Zoom to fit the model size";
 
+if(!ORYX.I18N.Share) ORYX.I18N.Share = {};
+
+ORYX.I18N.Share.group = "Share";
+ORYX.I18N.Share.share = "Share";
+ORYX.I18N.Share.shareDesc = "Share the model";
+
 if(!ORYX.I18N.SimulationPanel) ORYX.I18N.SimulationPanel = {};
 
 ORYX.I18N.SimulationPanel.group = "Simulation";

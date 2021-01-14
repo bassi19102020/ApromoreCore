@@ -206,6 +206,8 @@
         <!-- <button ca:data-t="animate" id="animate" w:onClick="Ap.pd.animate()" tooltiptext="Animate" sclass="ap-icon ap-icon-play-circle"/> -->
         <button ca:data-t="animate" id="animate" tooltiptext="Animate" sclass="ap-icon ap-icon-play-circle"/>
         <button ca:data-t="animate" id="animate_new" tooltiptext="Animate NEW" sclass="ap-icon ap-icon-play-circle"/>
+        <h:span class="ap-action-sep"></h:span>
+        <button id="share" sclass="ap-icon ap-icon-share" ca:data-t="share" tooltiptext="Share file or folder"/>
       </div>
       <div hflex="1" align="right">
         <!-- Exact single search -->
